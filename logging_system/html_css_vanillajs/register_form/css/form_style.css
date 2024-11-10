@@ -1,0 +1,46 @@
+#mainForm {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[autofocus],
+input:focus-within {
+    background-color: rgb(179, 240, 171);
+    outline: 0;
+}
+
+input[required] {
+    background-color: rgb(238, 207, 72);
+    outline: 0;
+}
+
+input[disabled] {
+    background-color: rgb(243, 198, 198);
+}
+
+.field-prompts {
+    height: 1em;
+    margin-top: 0;
+}
+
+#visibilityIconBox {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    margin-left: 0;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.toggle-visibility {
+    position: absolute;
+    visibility: hidden;
+}
+
+.toggle-visibility.visible {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+}

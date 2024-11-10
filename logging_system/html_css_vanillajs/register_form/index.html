@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register form</title>
+    <script src="./js/form_evaluation.js" defer type="text/javascript"></script>
+    <link rel="stylesheet" href="./css/form_style.css">
+</head>
+
+<body>
+
+    <div id="mainForm">
+
+        <h2>Registration Form</h2>
+        <form action="">
+            <label for="userName" id="userNameLabel">User name:</label><br>
+            <input type="text" name="userName" id="userName" autocomplete="" autoFocus><br>
+            <label for="emailAsUser">I will use email as user name.</label><input type="checkbox" name="emailAsUser"
+                id="emailAsUser">
+            <p class="field-prompts"></p>
+            <label for="email">Email: *</label><br>
+            <input type="text" name="email" id="email" required="required" autocomplete="false">
+            <p class="field-prompts" id="emailPrompt"></p>
+            <label for="reEmail">Re-Email: *</label><br>
+            <input type="text" name="reEmail" id="reEmail" autocomplete="" required="required" disabled>
+            <p class="field-prompts" id="reEmailPrompt"></p>
+            <label for="password">Password: *</label><br>
+            <input type="password" name="password" id="password" autocomplete="" required="required">
+            <div id="visibilityIconBox">
+                <img src="./img/icons/icons8-eye-visible-48.png" class="toggle-visibility visible" id="eyeIconOpen"
+                    alt="password visible">
+                <img src="./img/icons/icons8-eye-invisible-48.png" class="toggle-visibility" id="eyeIconClosed"
+                    alt="password invisible">
+            </div>
+            <br />
+            <p class="field-prompts" id="passwordPrompt"></p>
+            <label for="rePassword">Re-Password: *</label><br>
+            <input type="password" name="rePassword" id="rePassword" autocomplete="" required="required" disabled>
+            <p class="field-prompts" id="rePasswordPrompt"></p>
+            <hr>
+            <input type="button" value="Submit" id="submitButton" disabled>
+        </form>
+        <hr>
+        <p>* - cannot be empty</p>
+    </div>
