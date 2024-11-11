@@ -21,26 +21,20 @@ input:not([type="checkbox"]) {
     padding: .2em 1em;
     font-size: 1em;
     font-family: "Host Grotesk", sans-serif;
+    border-radius: .1em;
 }
 
-input[type="checkbox"],
-#emailAsUserBackground {
-    width: 1.3em;
-    height: 1.3em;
+input[type="checkbox"] {
+    width: 1.1em;
+    height: 1.1em;
+    padding: 0.05rem;
+    appearance: none;
+    -webkit-appearance: none;
     display: inline-block;
     vertical-align: middle;
-}
-
-input[type="checkbox"]:checked {
-    opacity: 0;
-}
-
-#emailAsUserWrapper {
-    width: fit-content;
-}
-
-#emailAsUserBackground {
-    background-color: aqua;
+    font-size: 1rem;
+    border: 0.15rem solid rgb(255, 255, 255);
+    background-color: rgb(221, 210, 197);
 }
 
 input[id="password"],
@@ -50,11 +44,14 @@ input[id="rePassword"] {
 }
 
 input[autofocus],
-input:focus-within {
+input:focus-within:not([type="checkbox"]) {
     background-color: rgb(179, 240, 171);
     outline: 0;
 }
 
+input[type="checkbox"]:checked {
+    background-color: rgb(58, 32, 3);
+}
 
 input[required] {
     background-color: rgb(238, 207, 72);
@@ -65,15 +62,15 @@ input[disabled] {
     background-color: rgb(243, 198, 198);
 }
 
-input:last-child:not([type="checkbox"]) {
+
+input:last-child {
     width: 50%;
     display: block;
     margin: 40px auto 30px;
     font-size: 1.5em;
 }
 
-.field-prompts,
-label {
+.field-prompts, label {
     height: 1em;
     margin-top: 0;
     padding-left: 1em;
@@ -111,12 +108,12 @@ label {
     visibility: visible;
 }
 
-#lineButtonSeparator {
+#lineButtonSeparator{
     margin-left: 0;
     margin-bottom: 0;
     width: 150px;
 }
 
-#asterixPrompt {
+#asterixPrompt{
     margin-top: 0;
 }
