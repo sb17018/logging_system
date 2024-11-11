@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register form</title>
     <script src="./js/form_evaluation.js" defer type="text/javascript"></script>
-    <link rel="stylesheet" href="./css/form_style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=visibility,visibility_off" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=visibility,visibility_off" />
+    <link rel="stylesheet" href="./css/form_style.css">
 </head>
 
 <body>
@@ -20,39 +20,40 @@
     <div id="mainForm">
 
         <h2>Registration Form</h2>
-        <hr>
+        <hr id="lineFormSeparator">
         <form action="">
-            <label for="userName" id="userNameLabel">User name:</label><br>
-            <input type="text" name="userName" id="userName" autocomplete="" autoFocus><br>
-            <div id="emailAsUserWrapper"><label for="emailAsUser">I will use email as user name.</label><input type="checkbox" name="emailAsUser"
-                id="emailAsUser"><div id="emailAsUserBackground"></div>
+            <label for="userName" id="userNameLabel">User name:</label>
+            <input type="text" name="userName" id="userName" autocomplete="" autoFocus>
+            <div id="emailAsUserWrapper"><label for="emailAsUser" id="emailAsUserLabel">I will use email as user name.</label><input
+                    type="checkbox" name="emailAsUser" id="emailAsUser">
+                <div id="emailAsUserBackground"></div>
             </div>
             <p class="field-prompts"></p>
-            <label for="email">Email: *</label><br>
+            <label for="email">Email: <span class="asterix">*</span></label><br>
             <input type="text" name="email" id="email" required="required" autocomplete="false">
             <p class="field-prompts" id="emailPrompt"></p>
-            <label for="reEmail">Re-Email: *</label><br>
+            <label for="reEmail">Re-Email: <span class="asterix">*</span></label><br>
             <input type="text" name="reEmail" id="reEmail" autocomplete="" required="required" disabled>
             <p class="field-prompts" id="reEmailPrompt"></p>
-            <label for="password">Password: *</label><br>
-            <input type="password" name="password" id="password" autocomplete="" required="required">
-            <div id="visibilityIconBox">
-                <span class="material-symbols-outlined toggle-visibility visible" id="eyeIconOpen">
-                    visibility
-                </span><br>
-                <span class="material-symbols-outlined toggle-visibility" id="eyeIconClosed">
-                    visibility_off
-                </span>
+            <label for="password">Password: <span class="asterix">*</span></label><br>
+            <div><input type="password" name="password" id="password" autocomplete="" required="required">
+                <p id="visibilityIconBox">
+                    <span class="material-symbols-outlined eye-icon toggle-visibility visible" id="eyeIconOpen">
+                        visibility
+                    </span><br>
+                    <span class="material-symbols-outlined eye-icon toggle-visibility" id="eyeIconClosed">
+                        visibility_off
+                    </span>
+                </p>
             </div>
-            <br />
             <p class="field-prompts" id="passwordPrompt"></p>
-            <label for="rePassword">Re-Password: *</label><br>
+            <label for="rePassword">Re-Password: <span class="asterix">*</span></label><br>
             <input type="password" name="rePassword" id="rePassword" autocomplete="" required="required" disabled>
             <p class="field-prompts" id="rePasswordPrompt"></p>
             <br />
-            <hr id="lineButtonSeparator"/>
-            <p id="asterixPrompt">* - cannot be empty</p>
-           
+            <hr id="lineButtonSeparator" />
+            <p id="asterixPrompt"><span class="asterix">*</span><i> - cannot be empty</i></p>
+
             <input type="button" value="Submit" id="submitButton" disabled>
         </form>
     </div>

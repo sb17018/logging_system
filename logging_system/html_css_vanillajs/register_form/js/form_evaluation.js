@@ -23,13 +23,17 @@ const RE_PASS_PROMPT = document.querySelector("#rePasswordPrompt");
 const RE_PASS_PROMPT_TEXT = "Needs to be typed in!";
 RE_PASS_PROMPT.textContent = RE_PASS_PROMPT_TEXT;
 
+const PASSWORD_PATERN = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
+
 // +++++++++++++ ADD LISTENERS +++++++++++++ //
 
 document.body.addEventListener("click", checkIfEmpty);
-document.querySelector("#userNameLabel").addEventListener("click", event => event.stopPropagation());
-USER_INPUT.addEventListener("click", event => event.stopPropagation());
+document.querySelector("#userNameLabel").addEventListener("click", event => uncheckEmailAsUser(event));
+USER_INPUT.addEventListener("click", event => uncheckEmailAsUser(event));
+USER_INPUT.addEventListener("focus", event => uncheckEmailAsUser(event));
 CHECKBOX_INPUT.addEventListener("click", event => event.stopPropagation());
-CHECKBOX_INPUT.addEventListener("change", checkEmailAsUser);
+CHECKBOX_INPUT.addEventListener("change", toggleEmailAsUser);
+document.querySelector("#emailAsUserLabel").addEventListener("click", event => uncheckEmailAsUser(event));
 EMAIL_INPUT.addEventListener("focus", () => { clearPropmt(); checkIfEmpty() });
 EMAIL_INPUT.addEventListener("input", emailMatch);
 EMAIL_INPUT.addEventListener("blur", () => { emailFormat(); emailMatchComplete() });
@@ -44,7 +48,9 @@ VISIBILITY_OFF_ICON.addEventListener("click", toggleVisibility);
 RE_PASS_INPUT.addEventListener("focus", () => { passwordMatch(); checkIfEmpty() });
 RE_PASS_INPUT.addEventListener("input", passwordMatch);
 RE_PASS_INPUT.addEventListener("blur", passwordMatchComplete);
-document.querySelector("#submitButton").addEventListener("click", submitForm);
+SUBMIT_INPUT.addEventListener("mouseover", event => checkEmailAsUser(event));
+SUBMIT_INPUT.addEventListener("focus", event => checkEmailAsUser(event));
+SUBMIT_INPUT.addEventListener("click", submitForm);
 
 
 // +++++++++ operation on User field +++++++++ //
@@ -54,21 +60,36 @@ document.querySelector("#submitButton").addEventListener("click", submitForm);
 function checkIfEmpty() {
     if (USER_INPUT.value === "" && !CHECKBOX_INPUT.checked) {
         CHECKBOX_INPUT.checked = true;
-        USER_INPUT.disabled = true;
+        USER_INPUT.classList.add("disabled");
     }
 }
 
+function uncheckEmailAsUser(event) {
+    console.log("Hi")
+    USER_INPUT.classList.remove("disabled");
+    USER_INPUT.focus();
+    CHECKBOX_INPUT.checked = false;
+    event.stopPropagation();
+}
 
 // +++++++++ operation on emailAsUser checkbox +++++++++ //
 
 // when checking box, user field get empty, when unchecking box, cursor focuses on user field
-function checkEmailAsUser() {
+function checkEmailAsUser(event) {
+    event.preventDefault();
+    USER_INPUT.value = "";
+    USER_INPUT.classList.add("disabled");
+    USER_INPUT.blur();
+    CHECKBOX_INPUT.checked = true;
+}
+
+function toggleEmailAsUser(){
     if (CHECKBOX_INPUT.checked) {
         USER_INPUT.value = "";
-        USER_INPUT.disabled = true;
+        USER_INPUT.classList.add("disabled");
     }
     else {
-        USER_INPUT.disabled = false;
+        USER_INPUT.classList.remove("disabled");
         USER_INPUT.focus();
     }
 }
@@ -77,8 +98,7 @@ function checkEmailAsUser() {
 
 // checks if input is in email format and shows prompt if not when cursor is leaving
 function emailFormat() {
-    const PATERN = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
-    let result = EMAIL_INPUT.value.match(PATERN);
+    let result = EMAIL_INPUT.value.match(PASSWORD_PATERN);
 
     if (result || EMAIL_INPUT.value == "") EMAIL_PROMPT.textContent = "";
     else EMAIL_PROMPT.textContent = "Email in wrong format!";
@@ -187,7 +207,7 @@ function toggleVisibility() {
 
 //activate button when all * filelds completed
 function activateSubmitButton() {
-    if (EMAIL_INPUT.value === RE_EMAIL_INPUT.value && PASS_INPUT.value === RE_PASS_INPUT.value && EMAIL_INPUT.value !== "" && PASS_INPUT.value !== "") {
+    if (EMAIL_INPUT.value.match(PASSWORD_PATERN) && EMAIL_INPUT.value === RE_EMAIL_INPUT.value && PASS_INPUT.value === RE_PASS_INPUT.value && EMAIL_INPUT.value !== "" && PASS_INPUT.value !== "") {
         SUBMIT_INPUT.disabled = false;
     }
     else {

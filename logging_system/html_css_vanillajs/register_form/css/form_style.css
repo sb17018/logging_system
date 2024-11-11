@@ -1,3 +1,11 @@
+/* ++++++ VARIABLES +++++++*/
+:root {
+    --interactive-element-color: rgb(216, 79, 16);
+    --prompt-color: aquamarine;
+    --disabled-input-color: rgba(255, 255, 255, 0.267);
+}
+
+/* ++++++ SELECTORS +++++++*/
 body {
     background-color: rgb(32, 32, 28);
     font-family: "Host Grotesk", sans-serif;
@@ -5,6 +13,10 @@ body {
     font-weight: 400;
     font-style: normal;
     color: white;
+}
+
+#lineFormSeparator {
+    margin-bottom: 2em;
 }
 
 #mainForm {
@@ -18,10 +30,25 @@ body {
 
 input:not([type="checkbox"]) {
     width: calc(100% - 2em);
-    padding: .2em 1em;
-    font-size: 1em;
+    position: relative;
+    display: inline-block;
+    padding: 0 .7em;
+    font-size: 1.5em;
     font-family: "Host Grotesk", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
     border-radius: .1em;
+    color: var(--interactive-element-color);
+}
+
+#emailAsUserLabel{
+    font-weight: 100;
+    color: rgb(243, 140, 93);
+}
+
+#emailAsUserLabel:hover{
+    color: rgb(243, 169, 134);
+    cursor: pointer;
 }
 
 input[type="checkbox"] {
@@ -45,35 +72,64 @@ input[id="rePassword"] {
 
 input[autofocus],
 input:focus-within:not([type="checkbox"]) {
-    background-color: rgb(179, 240, 171);
+    background-color: rgb(255, 255, 255);
     outline: 0;
 }
 
 input[type="checkbox"]:checked {
-    background-color: rgb(58, 32, 3);
+    background-color: var(--interactive-element-color);
 }
 
 input[required] {
-    background-color: rgb(238, 207, 72);
+    background-color: rgba(255, 255, 255, 0.945);
     outline: 0;
 }
 
 input[disabled] {
-    background-color: rgb(243, 198, 198);
+    background-color: var(--disabled-input-color);
 }
 
+input.disabled{
+    background-color: var(--disabled-input-color);
+}
 
-input:last-child {
+#submitButton {
     width: 50%;
     display: block;
     margin: 40px auto 30px;
-    font-size: 1.5em;
+    font-size: 2em;
+    background-color: var(--interactive-element-color);
+    color: rgba(255, 255, 255, 0.767);
 }
 
-.field-prompts, label {
+#submitButton:hover {
+    background-color: rgb(247, 120, 62);
+}
+
+#submitButton[disabled] {
+    background-color:  var(--disabled-input-color);
+    color: rgba(255, 255, 255, 0.267);
+}
+
+label {
     height: 1em;
     margin-top: 0;
     padding-left: 1em;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.900);
+}
+
+label:hover {
+    color: rgba(255, 255, 255);
+}
+
+.field-prompts {
+    height: 1em;
+    margin-top: 0;
+    padding-left: 1em;
+    font-weight: 100;
+    font-size: .9em;
+    color: var(--prompt-color);
 }
 
 .field-prompts:not(:first-of-type) {
@@ -81,11 +137,16 @@ input:last-child {
 }
 
 #visibilityIconBox {
+    margin-left: 0.3em;
     position: relative;
-    margin-left: 0;
-    display: inline-block;
-    vertical-align: middle;
-    color: white;
+    font-size: 1em;
+    display: inline;
+    vertical-align: top;
+    color: var(--interactive-element-color);
+}
+
+#visibilityIconBox:hover {
+    color: rgb(247, 120, 62);
     cursor: pointer;
 }
 
@@ -95,6 +156,10 @@ input:last-child {
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
+}
+
+.eye-icon {
+    font-size: 2em;
 }
 
 .toggle-visibility {
@@ -108,12 +173,18 @@ input:last-child {
     visibility: visible;
 }
 
-#lineButtonSeparator{
+#lineButtonSeparator {
+    width: 150px;
     margin-left: 0;
     margin-bottom: 0;
-    width: 150px;
+    background-color: var(--interactive-element-color);
 }
 
-#asterixPrompt{
+.asterix {
+    font-size: 1.5em;
+    color: var(--prompt-color);
+}
+
+#asterixPrompt {
     margin-top: 0;
 }
