@@ -96,7 +96,8 @@ input[required] {
     background-color: rgba(255, 255, 255, 0.945);
 }
 
-input[disabled], input.disabled {
+input[disabled],
+input.disabled {
     background-color: var(--disabled-input-color);
 }
 
@@ -144,19 +145,31 @@ label:hover {
     margin-bottom: 30px;
 }
 
-#passwordWrapper img {
+#eyeIconOpen,
+#eyeIconClosed {
     width: 2em;
     margin: 0;
     padding: 0 .2em;
-    border-top-right-radius: .1em;
-    border-bottom-right-radius: .1em;
+    border-top-right-radius: .2em;
+    border-bottom-right-radius: .2em;
     vertical-align: top;
-    background-color: var(--interactive-element-color);
     cursor: pointer;
 }
 
-#passwordWrapper img:hover {
-    background-color: rgb(247, 120, 62);
+#eyeIconOpen{
+    background-color: rgb(219, 6, 6);
+}
+
+#eyeIconOpen:hover{
+    background-color: rgb(247, 50, 50);
+}
+
+#eyeIconClosed{
+    background-color: rgb(4, 105, 4);
+}
+
+#eyeIconClosed:hover{
+    background-color: rgb(26, 139, 26);
 }
 
 .toggle-visibility {
