@@ -22,33 +22,33 @@ body {
 #mainForm {
     width: 500px;
     margin: 40px auto;
-    padding: 20px 30px;
+    padding: 1em 2em;
     background-color: rgb(58, 32, 3);
     border-radius: 10px;
     box-shadow: 0px 0px 5px 2px rgb(248, 230, 218);
 }
 
+
 input:not([type="checkbox"]) {
-    width: calc(100% - 2em);
-    position: relative;
-    display: inline-block;
+    width: calc(100% - 1.4em);
     padding: 0 .7em;
     font-size: 1.5em;
     font-family: "Host Grotesk", sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
+    border: 0;
     border-radius: .1em;
     color: var(--interactive-element-color);
 }
 
-#emailAsUserLabel{
+#emailAsUserLabel {
     font-weight: 100;
     color: rgb(243, 140, 93);
+    cursor: pointer;
 }
 
-#emailAsUserLabel:hover{
+#emailAsUserLabel:hover {
     color: rgb(243, 169, 134);
-    cursor: pointer;
 }
 
 input[type="checkbox"] {
@@ -62,11 +62,19 @@ input[type="checkbox"] {
     font-size: 1rem;
     border: 0.15rem solid rgb(255, 255, 255);
     background-color: rgb(221, 210, 197);
+    cursor: pointer;
 }
 
-input[id="password"],
-input[id="rePassword"] {
-    width: 85%;
+#passwordWrapper {
+    width: 100%;
+    max-height: 2em;
+    margin: 0 2em 0 0;
+}
+
+input[id="password"] {
+    width: calc(100% - 3.4em);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     display: inline-block;
 }
 
@@ -80,16 +88,15 @@ input[type="checkbox"]:checked {
     background-color: var(--interactive-element-color);
 }
 
+input[type="checkbox"]:checked:hover {
+    background-color: rgb(247, 120, 62);
+}
+
 input[required] {
     background-color: rgba(255, 255, 255, 0.945);
-    outline: 0;
 }
 
-input[disabled] {
-    background-color: var(--disabled-input-color);
-}
-
-input.disabled{
+input[disabled], input.disabled {
     background-color: var(--disabled-input-color);
 }
 
@@ -102,12 +109,13 @@ input.disabled{
     color: rgba(255, 255, 255, 0.767);
 }
 
-#submitButton:hover {
+#submitButton:not(:disabled):hover {
     background-color: rgb(247, 120, 62);
+    cursor: pointer;
 }
 
 #submitButton[disabled] {
-    background-color:  var(--disabled-input-color);
+    background-color: var(--disabled-input-color);
     color: rgba(255, 255, 255, 0.267);
 }
 
@@ -136,41 +144,27 @@ label:hover {
     margin-bottom: 30px;
 }
 
-#visibilityIconBox {
-    margin-left: 0.3em;
-    position: relative;
-    font-size: 1em;
-    display: inline;
+#passwordWrapper img {
+    width: 2em;
+    margin: 0;
+    padding: 0 .2em;
+    border-top-right-radius: .1em;
+    border-bottom-right-radius: .1em;
     vertical-align: top;
-    color: var(--interactive-element-color);
-}
-
-#visibilityIconBox:hover {
-    color: rgb(247, 120, 62);
+    background-color: var(--interactive-element-color);
     cursor: pointer;
 }
 
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-}
-
-.eye-icon {
-    font-size: 2em;
+#passwordWrapper img:hover {
+    background-color: rgb(247, 120, 62);
 }
 
 .toggle-visibility {
-    position: absolute;
-    top: 0;
-    left: 0;
-    visibility: hidden;
+    display: none;
 }
 
 .toggle-visibility.visible {
-    visibility: visible;
+    display: inline-block;
 }
 
 #lineButtonSeparator {

@@ -24,8 +24,8 @@
         <form action="">
             <label for="userName" id="userNameLabel">User name:</label>
             <input type="text" name="userName" id="userName" autocomplete="" autoFocus>
-            <div id="emailAsUserWrapper"><label for="emailAsUser" id="emailAsUserLabel">I will use email as user name.</label><input
-                    type="checkbox" name="emailAsUser" id="emailAsUser">
+            <div id="emailAsUserWrapper"><label for="emailAsUser" id="emailAsUserLabel">I will use email as user
+                    name.</label><input type="checkbox" name="emailAsUser" id="emailAsUser">
                 <div id="emailAsUserBackground"></div>
             </div>
             <p class="field-prompts"></p>
@@ -36,15 +36,12 @@
             <input type="text" name="reEmail" id="reEmail" autocomplete="" required="required" disabled>
             <p class="field-prompts" id="reEmailPrompt"></p>
             <label for="password">Password: <span class="asterix">*</span></label><br>
-            <div><input type="password" name="password" id="password" autocomplete="" required="required">
-                <p id="visibilityIconBox">
-                    <span class="material-symbols-outlined eye-icon toggle-visibility visible" id="eyeIconOpen">
-                        visibility
-                    </span><br>
-                    <span class="material-symbols-outlined eye-icon toggle-visibility" id="eyeIconClosed">
-                        visibility_off
-                    </span>
-                </p>
+            <div id="passwordWrapper">
+                <input type="password" name="password" id="password" autocomplete="" required="required">
+                <img src="./img/icons/password_visibility_visible.png" class="toggle-visibility visible"
+                    id="eyeIconOpen" alt="password invisible">
+                <img src="./img/icons/password_visibility_invisible.png" class="toggle-visibility" id="eyeIconClosed"
+                    alt="password visible">
             </div>
             <p class="field-prompts" id="passwordPrompt"></p>
             <label for="rePassword">Re-Password: <span class="asterix">*</span></label><br>
